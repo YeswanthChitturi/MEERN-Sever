@@ -16,7 +16,7 @@ jobs:
           token: ${{secrets.ACTIONS_PAT}}
 
       - name: Configure Git
-        run: |
+        run:
           git config --global user.name 'YeswanthChitturi'
           git config --global user.email 'yeswanthkanna6281@gmaiil.com'
 
