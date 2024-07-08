@@ -20,8 +20,6 @@ jobs:
         run: |
           git config --global user.name 'YeswanthChitturi'
           git config --global user.email 'yeswanthkanna6281@gmail.com'
-          git remote set-url origin https://x-access-token:${{secrets.ACTIONS_PAT}}@github.com/YeswanthChitturi/MEERN-Sever.git
-          git fetch --all
 
       - name: Merge main into Testing
         run: |
