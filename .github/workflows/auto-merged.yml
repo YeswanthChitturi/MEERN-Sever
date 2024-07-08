@@ -30,4 +30,4 @@ jobs:
         run: |
           git checkout Testing
           git merge -X theirs main --allow-unrelated-histories
-          git push https://x-access-token:${{secrets.ACTIONS_PAT}}@github.com/YeswanthChitturi/MEERN-Sever.git Testing
+          git push origin Testing
