@@ -16,13 +16,17 @@ jobs:
           token: ${{secrets.ACTIONS_PAT}}
           persist-credentials: false
 
-      - name: Set up authentication for Git
+      - name: Configure Git
         run: |
           git config --global user.name 'YeswanthChitturi'
           git config --global user.email 'yeswanthkanna6281@gmail.com'
+          git remote set-url origin https://x-access-token:${{secrets.ACTIONS_PAT}}@github.com/YeswanthChitturi/MEERN-Sever.git
+
+      - name: Fetch all branches
+        run: git fetch origin
 
       - name: Merge main into Testing
         run: |
           git checkout Testing
-          git merge -X theirs main --allow-unrelated-histories
+          git merge -X theirs origin/main --allow-unrelated-histories
           git push origin Testing
