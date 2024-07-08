@@ -12,11 +12,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with: 
+          token: ${{secrets.ACTION_PAT}}
 
       - name: Configure Git
         run: |
           git config --global user.name 'YeswanthChitturi'
           git config --global user.email 'yeswanthkanna6281@gmaiil.com'
+
 
       - name: Fetch all branches
         run: git fetch --all
