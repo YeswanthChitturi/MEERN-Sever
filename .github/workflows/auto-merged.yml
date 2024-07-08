@@ -15,20 +15,15 @@ jobs:
         with:
           token: ${{secrets.ACTIONS_PAT}}
 
-      - name: Configure Git user name
-        run: git config --global user.name 'YeswanthChitturi'
-
-      - name: Configure Git user email
-        run: git config --global user.email 'yeswanthkanna6281@gmail.com'
-
-      - name: Fetch all branches
-        run: git fetch --all
+      - name: Set up authentication for Git
+        run: |
+          git config --global user.name 'YeswanthChitturi'
+          git config --global user.email 'yeswanthkanna6281@gmail.com'
+          git remote set-url origin https://x-access-token:${{secrets.ACTIONS_PAT}}@github.com/YeswanthChitturi/MEERN-Sever.git
+          git fetch --all
 
       - name: Merge main into Testing
-        env:
-          GITHUB_TOKEN: ${{secrets.ACTIONS_PAT}}
         run: |
-          git remote set-url origin https://x-access-token:${{secrets.ACTIONS_PAT}}@github.com/YeswanthChitturi/MEERN-Sever.git
           git checkout Testing
           git merge -X theirs main --allow-unrelated-histories
           git push origin Testing
