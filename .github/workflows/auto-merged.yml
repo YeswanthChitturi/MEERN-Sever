@@ -12,19 +12,22 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with: 
+        with:
           token: ${{secrets.ACTIONS_PAT}}
 
-      - name: Configure Git
-        run:
-          git config --global user.name 'YeswanthChitturi'
-          git config --global user.email 'yeswanthkanna6281@gmaiil.com'
+      - name: Configure Git user name
+        run: git config --global user.name 'YeswanthChitturi'
+
+      - name: Configure Git user email
+        run: git config --global user.email 'yeswanthkanna6281@gmail.com'
 
       - name: Fetch all branches
         run: git fetch --all
 
       - name: Merge main into Testing
+        env:
+          GITHUB_TOKEN: ${{secrets.ACTIONS_PAT}}
         run: |
           git checkout Testing
-          git -X theirs merge main --allow-unrelated-histories
-          git push origin Testing      
+          git merge -X theirs main --allow-unrelated-histories
+          git push https://x-access-token:${{secrets.ACTIONS_PAT}}@github.com/YeswanthChitturi/MEERN-Sever.git Testing
