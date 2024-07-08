@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Initialize and Update Submodules
-        run: |
-          git submodule update --init --recursive
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
