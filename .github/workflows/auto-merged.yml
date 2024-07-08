@@ -21,8 +21,8 @@ jobs:
       - name: Fetch all branches
         run: git fetch --all
 
-      - name: Merge main into testing
+      - name: Merge main into Testing
         run: |
-          git checkout testing
+          git checkout Testing
           git -X theirs merge main --allow-unrelated-histories
           git push origin Testing      
