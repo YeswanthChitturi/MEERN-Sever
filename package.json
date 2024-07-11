@@ -4,13 +4,14 @@
   "description": "This is my server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "apollo-server-express": "^3.13.0",
     "axios": "^1.7.2",
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
@@ -18,8 +19,12 @@
     "graphql-tools": "^9.0.1",
     "graphqltools": "^0.0.1",
     "mongodb": "^6.8.0",
-    "mongoose": "^8.4.4",
+    "mongoose": "^8.5.0",
     "nodemon": "^3.1.4",
     "superagent": "^9.0.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }
